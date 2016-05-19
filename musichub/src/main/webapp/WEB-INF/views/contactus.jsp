@@ -7,6 +7,8 @@
 <title>Contact us</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <style>
@@ -16,7 +18,6 @@
 </style>
 </head>
 <body>
-
 
 <div class="menu">
     <nav role="navigation" class="navbar navbar-default">
@@ -36,6 +37,7 @@
                 <li class="active"><a href="index">Home</a></li>
                 <li><a href="aboutus">about us</a></li>
                 <li><a href="contactus">contact us</a></li>
+                <li><a href="AllProducts">All Products</a></li>
                 
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -45,11 +47,7 @@
             </ul>
         </div>
     </nav>
-</div>
-
-
-
-<script type="text/javascript" src="js/bootstrap.min.js"> </script>
+</div><script type="text/javascript" src="js/bootstrap.min.js"> </script>
 <script type="text/javascript" src="js/jquery-2.2.3.min.js"> </script>
 <div class="container">
 <form style="padding:5px">

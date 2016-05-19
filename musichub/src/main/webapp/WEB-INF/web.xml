@@ -34,5 +34,9 @@
 		<servlet-name>spring</servlet-name>
 		<url-pattern>/signup</url-pattern>
 	</servlet-mapping>
-  
+	<servlet-mapping>
+		<servlet-name>spring</servlet-name>
+		<url-pattern>/AllProducts</url-pattern>
+	</servlet-mapping>
+  <welcome-file-list><welcome-file>index</welcome-file></welcome-file-list>
 </web-app>

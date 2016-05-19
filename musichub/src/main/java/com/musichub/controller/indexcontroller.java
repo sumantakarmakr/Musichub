@@ -5,7 +5,7 @@ import org.springframework.web.servlet.ModelAndView;
 //import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class indexcontroller {
-	@RequestMapping(value="/index")
+	@RequestMapping(value="index")
 	public ModelAndView indexview()
 	{
 		return new ModelAndView("index");
@@ -29,5 +29,10 @@ public class indexcontroller {
 	public ModelAndView aboutusview()
 	{
 		return new ModelAndView("aboutus");
+	}
+	@RequestMapping(value="AllProducts")
+	public ModelAndView productsview()
+	{
+		return new ModelAndView("AllProducts");
 	}
 }

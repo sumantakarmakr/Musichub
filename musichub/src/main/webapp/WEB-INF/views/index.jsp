@@ -1,15 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Music hub</title>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <style type="text/css">
     .bs-example{
     	margin: 20px;
@@ -61,6 +64,7 @@
                 <li class="active"><a href="index">Home</a></li>
                 <li><a href="aboutus">about us</a></li>
                 <li><a href="contactus">contact us</a></li>
+                <li><a href="AllProducts">All Products</a></li>
                 
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -121,21 +125,21 @@
  Discover new music on MTV.</p>
 </div>
 <div class="col-sm-2" >
-<img id="image" src="resources/image/1.jpg" height="150px" width="150px"/>
+<img id="image" src="resources/image/products/1.jpg" height="150px" width="150px"/>
 <div class="carousel-caption">
-<a href="#">Play songs</a>
+<a href="AllProducts?searchkeyword=Flute">Flute</a>
 </div>
 </div>
 <div class="col-sm-2">
-<img id="image" src="resources/image/2.jpg" height="150px" width="150px"/>
+<img id="image" src="resources/image/products/1.png" height="150px" width="150px"/>
 <div class="carousel-caption">
-<a href="#">Products</a>
+<a href="AllProducts?searchkeyword=Drum">Drum</a>
 </div>
 </div>
 <div class="col-sm-2">
-<img id="image" src="resources/image/3.jpg" height="150px" width="150px"/>
+<img id="image" src="resources/image/products/5.jpg" height="150px" width="150px"/>
 <div class="carousel-caption">
-<a href="#">Downloads</a>
+<a href="AllProducts?searchkeyword=Guitar">Guitar</a>
 </div>
 </div>
 <div class=" col-sm-3">
