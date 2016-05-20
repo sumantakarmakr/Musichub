@@ -14,7 +14,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<style type="text/css">000
+<style type="text/css">
     .bs-example{
     	margin: 20px;
     }
@@ -119,17 +119,17 @@
     <td><img height="100px" width="100px" src="{{x.Photo}}"></td>
   </tr>
 </table>
+
 </div>
 </div>
 
 
 <script>
 var app = angular.module('myApp', []);
-app.controller('customersCtrl', function($scope, $http) {
-	
-  $http.get("resources/js/products.js").then(function (response) {
-      $scope.myData = response.data.records;
-  });
+app.controller('customersCtrl', function($scope) {
+
+      $scope.myData =${list};
+ 
 });
 
 

@@ -1,7 +1,11 @@
 package com.musichub.controller;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.list;
+import com.productmodel;
 //import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class indexcontroller {
@@ -33,6 +37,9 @@ public class indexcontroller {
 	@RequestMapping(value="AllProducts")
 	public ModelAndView productsview()
 	{
-		return new ModelAndView("AllProducts");
+		
+		ModelAndView m1=new ModelAndView("AllProducts");
+		m1.addObject("list",new list().toString());
+		return m1 ;
 	}
 }
