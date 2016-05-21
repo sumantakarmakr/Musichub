@@ -1,23 +1,37 @@
 package com;
-import  java.io.Serializable;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "productmodel")
 public class productmodel implements Serializable {
+	
 	public String ProductID;
 	public String GroupName;
 	public String Name;
 	public String Price;
 	public String Qty;
+	public String Desc;
+	
 	public String Photo;
-	 public productmodel(String ProductID,String GroupName,String Name,String Price,String Qty,String Photo)
-	 {
-		this.ProductID=ProductID;
-		this.GroupName=GroupName;
-		this.Name=Name;
-		this.Price=Price;
-		this.Qty=Qty;
-		this.Photo=Photo;
-	 }
-		public String toString(){
-			return "{ProductID:'"+ProductID+"',GroupName:'"+GroupName+"',Name:'"+Name+"',Price:'"+Price+"',Qty:'"+Qty+"',Photo:'"+Photo+"'}";}
+	@Id
+	@GeneratedValue
+	public int Products;
+	public int getProducts() {
+		return Products;
+	}
+	public void setProducts(int products) {
+		Products = products;
+	}
+	public String getDesc() {
+		return Desc;
+	}
+	public void setDesc(String desc) {
+		Desc = desc;
+	} 
 	public String getProductID() {
 		return ProductID;
 	}
@@ -66,6 +80,19 @@ public class productmodel implements Serializable {
 		Photo = photo;
 	}
 
-	
+	public productmodel(String ProductID,String GroupName,String Name,String Price,String Qty,String Desc,String Photo,int products)
+	 {
+		this.ProductID=ProductID;
+		this.GroupName=GroupName;
+		this.Name=Name;
+		this.Price=Price;
+		this.Qty=Qty;
+		this.Desc=Desc;
+		this.Photo=Photo;
+		this.Products=products;
+	 }
+		/*public String toString(){
+			return "{ProductID:'"+ProductID+"',GroupName:'"+GroupName+"',Name:'"+Name+"',Price:'"+Price+"',Qty:'"+Qty+"',Desc:'"+Desc+"',Photo:'"+Photo+"'}";
+			}*/
 }
 

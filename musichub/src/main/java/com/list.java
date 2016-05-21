@@ -25,10 +25,10 @@ public class list {
 
 	public list()
 	{
-		MyList.add(new productmodel("3","Flute","pompom","5000","13","resources/image/products/1.jpg"));
-		MyList.add(new productmodel("3","Drum","pompom","5000","13","resources/image/products/1.png"));
-		MyList.add(new productmodel("3","pompom","pompom","5000","13","resources/image/products/6.jpg"));
-		MyList.add(new productmodel("3","Guiter","pompom","5000","13","resources/image/products/5.jpg"));
+		MyList.add(new productmodel("3","Flute","Flute","4500","5","This is Fluet","resources/image/products/1.jpg",1));
+		MyList.add(new productmodel("3","Drum","Drum","6200","13","This is Drum","resources/image/products/1.png",2));
+		MyList.add(new productmodel("3","pompom","pompom","200","12","This is Pompom","resources/image/products/6.jpg",3));
+		MyList.add(new productmodel("3","Guiter","Guiter","5500","111","This is Guiter","resources/image/products/5.jpg",4));
 	}
 	public String toString()
 	{

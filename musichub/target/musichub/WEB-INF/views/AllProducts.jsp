@@ -105,9 +105,31 @@
             <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
           </a>
   </th>
-  <th>Price</th>
-  <th>Quantity</th>
-  <th>Photos</th>
+  <th><a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+  Price
+  <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+  </th>
+  <th><a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+  Quantity
+  <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+  </th>
+  <th><a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+  Desc
+  <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+  </th>
+  <th>
+  <a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+  Photos
+  <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+  </th>
   
   </tr>
   <tr ng-repeat="x in myData | filter:search">
@@ -116,20 +138,21 @@
     <td>{{x.Name}}</td>
     <td>{{x.Price}}</td>
     <td>{{x.Qty}}</td>
+    <td>{{x.Desc}}</td>
     <td><img height="100px" width="100px" src="{{x.Photo}}"></td>
   </tr>
 </table>
+
 </div>
 </div>
 
 
 <script>
 var app = angular.module('myApp', []);
-app.controller('customersCtrl', function($scope, $http) {
-	
-  $http.get("resources/js/products.js").then(function (response) {
-      $scope.myData = response.data.records;
-  });
+app.controller('customersCtrl', function($scope) {
+
+      $scope.myData =${list};
+ 
 });
 
 
