@@ -1,0 +1,137 @@
+package com.FurtinureStation.controller;
+
+
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.FurtinureStation.model.*;
+import com.FurtinureStation.service.*;
+@Controller
+@Service("serviceClass")
+public class furtinurecontroller {
+	 @Autowired
+	//serviceclass serviceClass;
+	 
+	
+	@RequestMapping(value = {"/","/home"})
+	public ModelAndView indexview()
+	{
+	return new ModelAndView("index");	
+	}
+	@RequestMapping("/AllProducts")
+	public ModelAndView AllProductsview()
+	{
+		
+		List<productmodel> productList = (List <productmodel>)serviceClass.getList();
+		  return new ModelAndView("AllProducts", "productList", productList);
+	}
+	@RequestMapping("/editproduct")
+	public ModelAndView editproductview(@RequestParam int ID,@ModelAttribute productmodel pdm)
+	{
+		productmodel productobj=serviceClass.getRowById(ID);
+	return new ModelAndView("editproduct", "productobj", productobj);	
+	}
+	@RequestMapping("/productdetails")
+	public ModelAndView detailsview()
+	{
+	return new ModelAndView("productdetails");	
+	}
+	@RequestMapping("/reg_product")
+	public ModelAndView regview(@ModelAttribute productmodel pdm)
+	{
+		
+		
+	return new ModelAndView("reg_product");	
+	}
+	@RequestMapping("/insert")
+	public ModelAndView insert(@ModelAttribute productmodel pdm)
+	{
+		serviceClass.insertRow(pdm);
+		
+	return new ModelAndView("redirect:reg_product");	
+	}
+	@RequestMapping("delete")
+	 public ModelAndView deleteUser(@RequestParam int ID) {
+	  serviceClass.deleteRow(ID);
+	  return new ModelAndView("redirect:AllProducts");
+	 }
+	@RequestMapping(value="/aboutus")
+	public ModelAndView aboutusview()
+	{
+		return new ModelAndView("aboutus");
+	}
+	@RequestMapping(value="/contactus")
+	public ModelAndView contactusview()
+	{
+		return new ModelAndView("contactus");
+	}
+	 @RequestMapping("update")
+	 public ModelAndView updateUser(@ModelAttribute productmodel pdm) {
+	  serviceClass.updateRow(pdm);
+	  return new ModelAndView("redirect:AllProduct");
+	 }
+
+	 @RequestMapping(value = "/admin")
+	    public ModelAndView adminPage() {
+	       // model.addAttribute("user", getPrincipal());
+		 ModelAndView m1=new ModelAndView();
+		 m1.addObject("user", getPrincipal());
+	        return new ModelAndView("index") ;
+	    }
+	 @RequestMapping(value="/Access_Denied")
+	 public ModelAndView accessDeniedPage()
+	 {
+		 ModelAndView m1=new ModelAndView();
+		 m1.addObject("user", getPrincipal());
+		 return new ModelAndView("index");
+	 }
+	 @RequestMapping(value="/login")
+	 public ModelAndView loginPage() {
+	       // model.addAttribute("user", getPrincipal());
+		
+	        return new ModelAndView("login") ;
+	    }
+	 @RequestMapping(value="/logout")
+	 public ModelAndView logoutPage(HttpServletRequest request, HttpServletResponse response)
+	 {
+		 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	        if (auth != null){    
+	            new SecurityContextLogoutHandler().logout(request, response, auth);
+	        }
+	        return new ModelAndView("redirect:/login?403");
+	 }
+	 
+	 
+	 private String getPrincipal(){
+	        String userName = null;
+	        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	 
+	        if (principal instanceof UserDetails) {
+	            userName = ((UserDetails)principal).getUsername();
+	        } else {
+	            userName = principal.toString();
+	        }
+	        return userName;
+	    }
+
+
+
+}

@@ -1,0 +1,16 @@
+package com.FurtinureStation.service;
+
+public interface serviceclass {
+	public int insertRow(productmodel pdm);
+
+	 public List getList();
+
+	 public pdm getRowById(int id);
+
+	 public int updateRow(productmodel pdm);
+
+	 public int deleteRow(int id);
+	
+	
+	
+}

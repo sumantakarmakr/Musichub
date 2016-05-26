@@ -1,0 +1,13 @@
+package com.FurtinureStation.DAO;
+
+import com.FurtinureStation.model.productmodel;
+
+public interface productDAO {
+	 
+	 public void saveOrUpdate(productmodel pdm);
+     
+	    public void delete(int ID);
+	     
+	    public productDAO get(int ID);
+
+}

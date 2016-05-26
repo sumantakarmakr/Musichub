@@ -1,0 +1,10 @@
+package com.FurtinureStation.DAO;
+
+public interface productDAO {
+	 public void saveOrUpdate(productDAO pdao);
+     
+	    public void delete(int ID);
+	     
+	    public productDAO get(int ID);
+
+}

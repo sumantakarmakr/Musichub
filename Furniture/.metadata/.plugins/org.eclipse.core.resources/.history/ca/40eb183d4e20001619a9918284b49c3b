@@ -1,0 +1,38 @@
+package com.FurtinureStation.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+import com.FurtinureStation.model.productmodel;
+import com.FurtinureStation.DAO.*;
+public class serviceclassimpl implements serviceclass{
+
+	@Autowired
+	productDAO productDAO;
+	public int insertRow(productmodel pmd) {
+		// TODO Auto-generated method stub
+		return productDAO.insertRow(pmd);
+	}
+
+	public List getList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public productmodel getRowById(int ID) {
+		// TODO Auto-generated method stub
+		return productDAO.getRowById(ID);
+	}
+
+	public int updateRow(productmodel pdm) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int deleteRow(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

@@ -1,0 +1,80 @@
+package com.FurtinureStation.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.FurtinureStation.list;
+import com.FurtinureStation.model.productmodel;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import com.FurtinureStation.service.*;
+@Controller
+public class furtinurecontroller {
+	 @Autowired
+	 serviceclass serviceClass;
+	
+	@RequestMapping("/")
+	public ModelAndView indexview()
+	{
+	return new ModelAndView("index");	
+	}
+	@RequestMapping("/AllProducts")
+	public ModelAndView AllProductsview()
+	{
+		
+		List<productmodel> productList = (List <productmodel>)serviceClass.getList();
+		  return new ModelAndView("AllProducts", "productList", productList);
+	}
+	@RequestMapping("/editproduct")
+	public ModelAndView editproductview(@RequestParam int ID,@ModelAttribute productmodel pdm)
+	{
+		productmodel productobj=serviceClass.getRowById(ID);
+	return new ModelAndView("editproduct", "productobj", productobj);	
+	}
+	@RequestMapping("/productdetails")
+	public ModelAndView detailsview()
+	{
+	return new ModelAndView("productdetails");	
+	}
+	@RequestMapping("/reg_product")
+	public ModelAndView regview(@ModelAttribute productmodel pdm)
+	{
+		
+		
+	return new ModelAndView("reg_product");	
+	}
+	@RequestMapping("/insert")
+	public ModelAndView insert(@ModelAttribute productmodel pdm)
+	{
+		serviceClass.insertRow(pdm);
+		
+	return new ModelAndView("redirect:reg_product");	
+	}
+	@RequestMapping("delete")
+	 public ModelAndView deleteUser(@RequestParam int ID) {
+	  serviceClass.deleteRow(ID);
+	  return new ModelAndView("redirect:AllProducts");
+	 }
+	@RequestMapping(value="/aboutus")
+	public ModelAndView aboutusview()
+	{
+		return new ModelAndView("aboutus");
+	}
+	@RequestMapping(value="/contactus")
+	public ModelAndView contactusview()
+	{
+		return new ModelAndView("contactus");
+	}
+	 @RequestMapping("update")
+	 public ModelAndView updateUser(@ModelAttribute productmodel pdm) {
+	  serviceClass.updateRow(pdm);
+	  return new ModelAndView("redirect:AllProduct");
+	 }
+
+}

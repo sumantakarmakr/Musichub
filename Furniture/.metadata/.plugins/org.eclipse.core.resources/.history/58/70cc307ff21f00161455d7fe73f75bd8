@@ -1,0 +1,30 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+ 
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  <servlet-name>spring</servlet-name>
+  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>spring</servlet-name>
+  <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <context-param>
+  <param-name>contextConfigaration</param-name>
+  <param-value>/WEB-INF/spring-dispatcher.xml</param-value>
+  </context-param>
+  <listener>
+  <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+</web-app>

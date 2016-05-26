@@ -1,0 +1,5 @@
+package com.FurtinureStation.model;
+
+public enum UserProfileType {
+
+}

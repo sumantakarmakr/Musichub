@@ -1,0 +1,17 @@
+package com.FurtinureStation.DAO;
+
+import com.FurtinureStation.model.productmodel;
+
+public interface productDAO {
+	 
+	 public int insertRow(Employee employee);
+
+	 public List getList();
+
+	 public Employee getRowById(int id);
+
+	 public int updateRow(Employee employee);
+
+	 public int deleteRow(int id);
+
+}

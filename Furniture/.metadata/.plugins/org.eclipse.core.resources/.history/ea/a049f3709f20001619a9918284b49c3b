@@ -1,0 +1,41 @@
+package com.FurtinureStation;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.FurtinureStation.model.productmodel;
+
+public class list {
+	 
+	public List<productmodel> MyList=new ArrayList<productmodel>();
+
+	
+
+
+	public List<productmodel> getMyList() {
+		return MyList;
+	}
+
+
+
+
+	public void setMyList(List<productmodel> myList) {
+		MyList = myList;
+	}
+
+
+
+
+	public list()
+	{
+		/*MyList.add(new productmodel("3","Flute","Flute","4500","5","This is Fluet","resources/image/products/1.jpg",1));
+		MyList.add(new productmodel("3","Drum","Drum","6200","13","This is Drum","resources/image/products/1.png",2));
+		MyList.add(new productmodel("3","pompom","pompom","200","12","This is Pompom","resources/image/products/6.jpg",3));
+		MyList.add(new productmodel("3","Guiter","Guiter","5500","111","This is Guiter","resources/image/products/5.jpg",4));
+	*/
+	}
+	public String toString()
+	{
+		return MyList.toString();
+	}
+
+}

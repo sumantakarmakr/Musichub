@@ -1,0 +1,97 @@
+package com.FurtinureStation.model;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "productmodel")
+public class productmodel implements Serializable {
+	
+	public String ProductID;
+	public String GroupName;
+	public String Name;
+	public String Price;
+	public String Qty;
+	public String Desc;
+	public String Photo;
+	@Id
+	@GeneratedValue
+	public int ID;
+	public int getProducts() {
+		return ID;
+	}
+	public void setProducts(int products) {
+		ID = products;
+	}
+	public String getDesc() {
+		return Desc;
+	}
+	public void setDesc(String desc) {
+		Desc = desc;
+	} 
+	public String getProductID() {
+		return ProductID;
+	}
+
+	public void setProductID(String productID) {
+		ProductID = productID;
+	}
+
+	public String getGroupName() {
+		return GroupName;
+	}
+
+	public void setGroupName(String groupName) {
+		GroupName = groupName;
+	}
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+	public String getPrice() {
+		return Price;
+	}
+
+	public void setPrice(String price) {
+		Price = price;
+	}
+
+	public String getQty() {
+		return Qty;
+	}
+
+	public void setQty(String qty) {
+		Qty = qty;
+	}
+
+	public String getPhoto() {
+		return Photo;
+	}
+
+	public void setPhoto(String photo) {
+		Photo = photo;
+	}
+
+	public productmodel(String ProductID,String GroupName,String Name,String Price,String Qty,String Desc,String Photo,int products)
+	 {
+		this.ProductID=ProductID;
+		this.GroupName=GroupName;
+		this.Name=Name;
+		this.Price=Price;
+		this.Qty=Qty;
+		this.Desc=Desc;
+		this.Photo=Photo;
+		this.Products=products;
+	 }
+		/*public String toString(){
+			return "{ProductID:'"+ProductID+"',GroupName:'"+GroupName+"',Name:'"+Name+"',Price:'"+Price+"',Qty:'"+Qty+"',Desc:'"+Desc+"',Photo:'"+Photo+"'}";
+			}*/
+}
+
