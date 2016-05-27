@@ -8,20 +8,20 @@
     <div class="container">
         <div id="login-box">
             <h2>Login with Username and Password</h2>
-            <form:form action="perform_login" commandName="userForm" method="post">
+            <form:form action="perform_login" method="post">
 
                 
 
                 <div class="form-group">
                     <label for="username">User: </label>
-                    <form:input  path="username" class="form-control" required="true"/>
+                    <input class="form-control" name="username" required="true"/>
                 </div>
                 <div class="form-group">
                 
                 </div>
                 <div class="form-group">
                     <label for="password">Passwrod:</label>
-                    <form:input type="password" path="password" class="form-control" required="true"/>
+                    <input type="password" path="password" class="form-control" name="password" required="true"/>
                 </div>
                 <div class="form-group">
                 

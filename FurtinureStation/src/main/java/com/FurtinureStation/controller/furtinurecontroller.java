@@ -38,9 +38,8 @@ import java.nio.file.Paths;
 import com.FurtinureStation.model.*;
 import com.FurtinureStation.service.*;
 @Controller
-@Service("serviceClass")
+@Service
 @Transactional
-
 public class furtinurecontroller {
 	
 	 @Autowired
@@ -55,16 +54,18 @@ public class furtinurecontroller {
 	}
 	
 	
-	@RequestMapping("/AllProducts")
+	@RequestMapping(value={"/AllProducts","admin/AllProducts"})
 	public ModelAndView AllProductsview()
 	{
 		
 		List productList = serviceClass.getList();
 		  return new ModelAndView("AllProducts", "productList", productList);
 	}
+
 	
 	
-	@RequestMapping("/editproduct")
+	
+	@RequestMapping("admin/editproduct")
 	public ModelAndView editproductview(@RequestParam int ID,@ModelAttribute productmodel pdm)
 	{
 		pdm=serviceClass.getRowById(ID);
@@ -72,7 +73,25 @@ public class furtinurecontroller {
 	return new ModelAndView("editproduct", "pdm", pdm);	
 	}
 	
-	
+	@RequestMapping("order/{cardId}")
+	public ModelAndView addcart(@RequestParam("cart") Cart cart)
+	{
+	//	serviceClass.insercart(cart);
+		return new ModelAndView("cart");
+	}
+	/*@RequestMapping("/order/{cartId}")
+	 public String createOrder(@PathVariable("cartId") int cartId) {
+	 UserProfile userOrder = new UserProfile();
+	 Cart cart=serviceClass.getCartById(cartId);
+	 userOrder.setCart(cart);
+	 UserProfile usersDetail = cart.getUserProfile();
+	 userOrder.setUsersDetail(usersDetail);
+	 userOrder.setBillingAddress(usersDetail.getBillingAddress());
+	 userOrder.setShippingAddress(usersDetail.getShippingAddress());
+	 orderService.addOrder(userOrder);
+	 return "redirect:/checkout?cartId="+cartId;
+	 }*/
+
 	
 	@RequestMapping("/productdetails")
 	public ModelAndView detailsview()
@@ -142,7 +161,7 @@ public class furtinurecontroller {
 	 
 	 
 	 
-	@RequestMapping("delete")
+	@RequestMapping("admin/delete")
 	 public ModelAndView deleteUser(@RequestParam int ID) {
 	  serviceClass.deleteRow(ID);
 	  return new ModelAndView("redirect:AllProducts");
@@ -210,23 +229,27 @@ public class furtinurecontroller {
 	 
 	 
 	 @RequestMapping(value="/reg_user")
-	 public ModelAndView reguser(@ModelAttribute Customer user)
+	 public ModelAndView reguser(@ModelAttribute("user") UserProfile user)
 	 {
-		 shippingAddress ShippingAddress = new shippingAddress();
-		 user.setShippingAddress(ShippingAddress);
+		// shippingAddress ShippingAddress = new shippingAddress();
+		 //user.setShippingAddress(ShippingAddress);
 		 
 		 return new ModelAndView("reg_user");
 	 }
 	 @RequestMapping(value={"/register"}, method = RequestMethod.POST)
-	 public ModelAndView registeruser(@Valid @ModelAttribute Customer user, BindingResult result)
+	 public ModelAndView registeruser(@Valid @ModelAttribute("user") UserProfile user, BindingResult result)
 	 {
 		
-		shippingAddress ShippingAddress = new shippingAddress();
-		 user.setShippingAddress(ShippingAddress);
+		//shippingAddress ShippingAddress = new shippingAddress();
+		 //user.setShippingAddress(ShippingAddress);
 		 if(result.hasErrors()){
 	            return new ModelAndView("reg_user");
 	        }
-		 return new ModelAndView("redirect:AllProduct");
+		 user.setEnabled(true);
+		 serviceClass.insertuser(user);
+		 
+		 
+		 return new ModelAndView("redirect:loginpage");
 	 }
 	 
 	 
@@ -246,7 +269,7 @@ public class furtinurecontroller {
 	 }*/
 	 
 	 @RequestMapping(value={"/loginpage"})
-	 public ModelAndView login(@ModelAttribute("userForm") UserProfile userForm) {
+	 public ModelAndView login() {
 	       // model.addAttribute("user", getPrincipal());
 		
 	        return new ModelAndView("loginpage") ;

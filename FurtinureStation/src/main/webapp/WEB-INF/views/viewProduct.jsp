@@ -33,8 +33,9 @@
 
                     <p ng-controller="cartCtrl">
                         <a href="<c:url value = "${url}" />" class="btn btn-default">Back</a>
-                        <a href="#" class="btn btn-warning btn-large" ng-click="addToCart('${product.ID}')"><span class="glyphicon glyphicon-shopping-cart"></span> Order Now</a>
-                        <a href="<spring:url value="/cart" />" class="btn btn-default"><span class="glyphicon glyphicon-hand-right"></span> View Cart</a>
+                        <a href="<spring:url value="/order/${cartId}" />" class="btn btn-warning btn-large" ng-click="addToCart('${product.ID}')">
+                        <span class="glyphicon glyphicon-shopping-cart"></span> Order Now</a>
+                        <a href="" class="btn btn-default"><span class="glyphicon glyphicon-hand-right"></span> View Cart</a>
                     </p>
 
                 </div>
@@ -43,6 +44,6 @@
 
 
 <!-- My -->
-<script src="<c:url value="/resources/js/controller.js?v3" /> "></script>
+<script src="<c:url value="/resources/js/controller.js" /> "></script>
 
 <%@ include file="/WEB-INF/views/headerfooter/footer.jsp" %>

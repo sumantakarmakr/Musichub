@@ -142,7 +142,7 @@ public class productmodel implements Serializable {
 		this.ID=products;
 	 }
 		/*public String toString(){
-			return "{ProductID:'"+ProductID+"',GroupName:'"+GroupName+"',Name:'"+Name+"',Price:'"+Price+"',Qty:'"+Qty+"',Desc:'"+Desc+"',Photo:'"+Photo+"'}";
+			return "{GroupName:'"+GroupName+"',Name:'"+Name+"',Price:'"+Price+"',Qty:'"+Qty+"',Desc:'"+Desc+"',Photo:'"+Photo+"'}";
 			}*/
 }
 

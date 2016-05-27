@@ -12,10 +12,8 @@ public class UserProfile{
     @Id
     @GeneratedValue
     private int userId;
-    @NotEmpty(message = "Please enter your UserName.")
-	private String username;
-	@NotEmpty(message = "Please enter your password.")
-	@Size(min= 6,max= 12,message = "Your password must between 6 and 15 characters")
+   	private String username;
+	
     private String password;
     private Boolean enabled;
   

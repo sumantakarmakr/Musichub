@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
+import com.FurtinureStation.model.Cart;
+import com.FurtinureStation.model.UserProfile;
 import com.FurtinureStation.model.productmodel;
 import com.FurtinureStation.list;
 import com.FurtinureStation.DAO.*;
@@ -39,6 +42,21 @@ public class serviceclassimpl implements serviceclass{
 	public int deleteRow(int ID) {
 		// TODO Auto-generated method stub
 		return productDAO.deleteRow(ID);
+	}
+
+	public int insertuser(UserProfile user) {
+		// TODO Auto-generated method stub
+		return productDAO.insertuser(user);
+	}
+
+	public int insercart(Cart cart) {
+		// TODO Auto-generated method stub
+		return productDAO.insertcart(cart);
+	}
+
+	public Cart getCartById(int cartId) {
+		// TODO Auto-generated method stub
+		return productDAO.getCartById(cartId);
 	}
 
 }
