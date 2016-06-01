@@ -30,12 +30,17 @@
                     <c:if test="${role='admin'}">
                         <c:set var="url" scope="page" value="/admin/productInventory" />
                     </c:if>
-
-                    <p ng-controller="cartCtrl">
-                        <a href="<c:url value = "${url}" />" class="btn btn-default">Back</a>
-                        <a href="<spring:url value="/order/${cartId}" />" class="btn btn-warning btn-large" ng-click="addToCart('${product.ID}')">
-                        <span class="glyphicon glyphicon-shopping-cart"></span> Order Now</a>
-                        <a href="" class="btn btn-default"><span class="glyphicon glyphicon-hand-right"></span> View Cart</a>
+                   <p ng-controller="cartCtrl">
+                   <form:form action="addtocart?ID=${product.ID}&userName=${pageContext.request.userPrincipal.name}" modelAttribute="Cart" commandName="cart">
+ 
+                       <input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}"/>
+			<input type="hidden" value="${pageContext.request.userPrincipal.name}" /> 
+			<input type="hidden" value="${product.ID}"/>
+			<span class="h3"> Quantity : <form:input path="qty" type="number" style="width:15%" /> </span>
+			<br/>
+			 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			<input type="submit"   value="Add" />
+			</form:form>
                     </p>
 
                 </div>

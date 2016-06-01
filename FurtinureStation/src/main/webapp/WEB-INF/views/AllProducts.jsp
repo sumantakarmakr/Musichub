@@ -75,7 +75,7 @@ $(row).hide();
     <input type="hidden" name="id" value="<c:out value="${user.ID}"/>" />
     <td><c:out value="${user.name}"/></td>
     <td><c:out value="${user.price }"/></td>
-    <td><img height="100px" width="100px" src="<c:out value="resources/images/${user.ID}.jpg"/>"/></td>
+    <td><img height="100px" width="100px" src="<c:out value="${pageContext.request.contextPath}/resources/images/${user.ID}.jpg"/>"/></td>
      
     <td><a href="viewProduct?ID=${user.ID}"/>view Details</a></td>
                 <td><a href="admin/editproduct?ID=${user.ID}"/>Edit</a></td>

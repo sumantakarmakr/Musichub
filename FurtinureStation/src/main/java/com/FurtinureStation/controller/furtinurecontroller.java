@@ -73,12 +73,17 @@ public class furtinurecontroller {
 	return new ModelAndView("editproduct", "pdm", pdm);	
 	}
 	
-	@RequestMapping("order/{cardId}")
+	/*@RequestMapping("/order/{cardId}")
 	public ModelAndView addcart(@RequestParam("cart") Cart cart)
 	{
 	//	serviceClass.insercart(cart);
 		return new ModelAndView("cart");
 	}
+	@ModelAttribute("/cart")
+	public ModelAndView create()
+	{
+		return new ModelAndView("");
+	}*/
 	/*@RequestMapping("/order/{cartId}")
 	 public String createOrder(@PathVariable("cartId") int cartId) {
 	 UserProfile userOrder = new UserProfile();
@@ -156,7 +161,7 @@ public class furtinurecontroller {
         }
     }
 	}
-	return new ModelAndView("redirect:/");	
+	return new ModelAndView("redirect:AllProducts");	
 	}
 	 
 	 
@@ -192,7 +197,7 @@ public class furtinurecontroller {
 	
 	
 	
-	 @RequestMapping("/update")
+	 @RequestMapping(value={"/update","admin/update"})
 	 public ModelAndView updateUser(@Valid @ModelAttribute("pdm") productmodel pdm, BindingResult result, HttpServletRequest request) {
 		 if(result.hasErrors()){
 	            return new ModelAndView("editproduct");
@@ -218,8 +223,9 @@ public class furtinurecontroller {
 	 
 	
 	 
-	 @RequestMapping("/viewProduct")
-		public String getProductById(@RequestParam("ID") int ID, Model model) {
+	 @RequestMapping(value={"/viewProduct","admin/viewProduct","user/viewProduct"})
+		public String getProductById(@RequestParam("ID") int ID, Model model) 
+	 {
 		 productmodel product = serviceClass.getRowById(ID);
 			model.addAttribute("product", product);
 			return "viewProduct";
@@ -228,7 +234,7 @@ public class furtinurecontroller {
 	 
 	 
 	 
-	 @RequestMapping(value="/reg_user")
+	 @RequestMapping(value={"/reg_user"})
 	 public ModelAndView reguser(@ModelAttribute("user") UserProfile user)
 	 {
 		// shippingAddress ShippingAddress = new shippingAddress();
@@ -300,6 +306,46 @@ public class furtinurecontroller {
 	        return userName;
 	    }
 
-
+	 @ModelAttribute("cartuser")
+		public User init()
+		{
+			return new User();
+		}
+		@ModelAttribute("cart")
+		public Cart create()
+		{
+			return new Cart();
+		}
+		@Autowired
+		private CartService cartService;
+		
+		public CartService getCartService() {
+			return cartService;
+		}
+		public void setCartService(CartService cartService) {
+			this.cartService = cartService;
+		}
+		@RequestMapping(value={"/admin/addtocart","/user/addtocart","/addtocart"})
+		public ModelAndView addToCart(@ModelAttribute Cart cart,@RequestParam("ID")int ID,@RequestParam("userName")String userName)
+		{
+			System.out.println(userName);
+			int userid =cartService.getUserIdByName(userName); 
+			cart.setUserid(userid);
+			cart.setID(ID);
+			cartService.addToCart(cart);
+			List cartList = cartService.getCart(userid);
+			ModelAndView model = new ModelAndView("/flow/cart","cartList",cartList);
+			//model.addObject("cartList",cartList.toString());
+			//model.addObject("cartId",cart.getCartId());
+			return model;
+		}
+		@RequestMapping(value={"/collectbillinginfo","/user/collectbillinginfo"})
+		public String collectBilling(@RequestParam("cartId") int cartId, @ModelAttribute("cart") Cart cart)
+		{
+			Cart mycart = cartService.findById(cartId); 
+			
+			System.out.println(mycart);
+			return "redirect:/cart?cartId="+cartId;
+		}
 
 }
