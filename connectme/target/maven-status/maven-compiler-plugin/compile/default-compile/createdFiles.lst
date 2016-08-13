@@ -1,0 +1,10 @@
+com\connectme\model\forummodel.class
+com\connectme\model\user.class
+com\connectme\service\service.class
+com\connectme\controller\connectmecontroller.class
+com\connectme\model\chatting.class
+com\connectme\model\blogmodel.class
+com\connectme\model\userprofile.class
+com\connectme\service\implementservice.class
+com\connectme\DAO\dao.class
+com\connectme\DAO\implementDAO.class
